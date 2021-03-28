@@ -212,7 +212,7 @@
     <module>xchange-stream-service-core</module>
     <module>xchange-stream-service-netty</module>
     <module>xchange-stream-service-pubnub</module>
-    <!-- <module>xchange-stream-valr</module> -->
+    <module>xchange-stream-valr</module>
   </modules>
 
   <ciManagement>
@@ -229,6 +229,10 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
+    </repository>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
     </repository>
   </repositories>
 
