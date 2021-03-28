@@ -179,6 +179,7 @@
     <module>xchange-tradeogre</module>
     <module>xchange-truefx</module>
     <module>xchange-upbit</module>
+    <!-- <module>xchange-valr</module> -->
     <module>xchange-vaultoro</module>
     <module>xchange-yobit</module>
     <module>xchange-zaif</module>
@@ -204,12 +205,14 @@
     <module>xchange-stream-huobi</module>
     <module>xchange-stream-kraken</module>
     <module>xchange-stream-lgo</module>
+    <module>xchange-stream-luno</module>
     <module>xchange-stream-okcoin</module>
     <module>xchange-stream-poloniex2</module>
     <module>xchange-stream-serum</module>
     <module>xchange-stream-service-core</module>
     <module>xchange-stream-service-netty</module>
     <module>xchange-stream-service-pubnub</module>
+    <!-- <module>xchange-stream-valr</module> -->
   </modules>
 
   <ciManagement>
