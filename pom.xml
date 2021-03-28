@@ -179,7 +179,7 @@
     <module>xchange-tradeogre</module>
     <module>xchange-truefx</module>
     <module>xchange-upbit</module>
-    <!-- <module>xchange-valr</module> -->
+    <module>xchange-valr</module>
     <module>xchange-vaultoro</module>
     <module>xchange-yobit</module>
     <module>xchange-zaif</module>
