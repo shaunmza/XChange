@@ -47,6 +47,7 @@ public class ValrManualExample {
                 .build();
 
         exchange.connect(subscription).blockingAwait();
+        LOG.info("Is alive: {}", exchange.isAlive());
 
         Observable<OrderBook> orderBookObserver = exchange.getStreamingMarketDataService().getOrderBook(CurrencyPair.BTC_ZAR);
         Disposable orderBookSubscriber = orderBookObserver.subscribe(orderBook -> {
@@ -93,6 +94,27 @@ public class ValrManualExample {
                     LOG.error("ERROR in getting ticker ETH: ", throwable);
                 });
 
+        Disposable balanceSubscriberZAR = exchange.getStreamingAccountService().getBalanceChanges(Currency.ZAR)
+            .subscribe(balance -> {
+                LOG.info("BALANCE ZAR: {}", balance);
+            }, throwable -> {
+                LOG.error("ERROR in getting balance ZAR: ", throwable);
+            });
+
+        Disposable userTradeSubscriber = exchange.getStreamingTradeService().getUserTrades(CurrencyPair.BTC_ZAR)
+            .subscribe(trade -> {
+                LOG.info("USER TRADE BTC: {}", trade);
+            }, throwable -> {
+                LOG.error("ERROR in getting user trade BTC: ", throwable);
+            });
+
+        Disposable userOrderSubscriber = exchange.getStreamingTradeService().getOrderChanges(CurrencyPair.BTC_ZAR)
+            .subscribe(order -> {
+                LOG.info("USER ORDER BTC: {}", order);
+            }, throwable -> {
+                LOG.error("ERROR in getting user order BTC: ", throwable);
+            });
+
         Thread.sleep(60000);
 
         tickerSubscriber.dispose();
@@ -101,6 +123,9 @@ public class ValrManualExample {
         tradesSubscriberETH.dispose();
         orderBookSubscriber.dispose();
         orderBookETHSubscriber.dispose();
+        balanceSubscriberZAR.dispose();
+        userTradeSubscriber.dispose();
+        userOrderSubscriber.dispose();
 
         Thread.sleep(1000);
 
